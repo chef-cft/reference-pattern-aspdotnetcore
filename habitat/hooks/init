@@ -1,0 +1,32 @@
+cd {{pkg.svc_path}}
+if(Test-Path var) { Remove-Item var -Recurse -Force }
+New-Item -Name var -ItemType Junction -target "{{pkg.path}}/www"
+
+cd var/App_Data 
+New-Item -Name datasettings.json -ItemType SymbolicLink -target "{{pkg.svc_config_path}}/datasettings.json" -Force
+New-Item -Name installedPlugins.json -ItemType SymbolicLink -target "{{pkg.svc_config_path}}/installedPlugins.json" -Force
+New-Item -Name nop_create.sql -ItemType SymbolicLink -target "{{pkg.svc_config_path}}/nop_create.sql" -Force
+
+
+Invoke-Command -ComputerName localhost -EnableNetworkAccess {
+    $ProgressPreference="SilentlyContinue"
+    Write-Host "Checking for nuget package provider..."
+    if(!(Get-PackageProvider -Name nuget -ErrorAction SilentlyContinue -ListAvailable)) {
+        Write-Host "Installing Nuget provider..."
+        Install-PackageProvider -Name NuGet -Force | Out-Null
+    }
+    Write-Host "Checking for SqlServer PS module..."
+    if(!(Get-Module SqlServer -ListAvailable)) {
+        Write-Host "Installing SqlServer PS Module..."
+        Install-Module SqlServer -Force -AllowClobber
+    }
+
+    {{#if bind.database}}
+    $server = "{{bind.database.first.sys.ip}}\\"
+    $server += "{{bind.database.first.cfg.instance}},"
+    $server += "{{bind.database.first.cfg.port}}"
+    
+    Write-Host "Creating DB..."
+    Invoke-Sqlcmd -ServerInstance $server -Database master -Username sa -Password Pass@word1 -InputFile "{{pkg.svc_var_path}}\App_data\nop_create.sql"
+    {{/if}}
+}

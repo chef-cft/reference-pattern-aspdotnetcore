@@ -1,0 +1,5 @@
+{
+    "DataProvider": "sqlserver",
+    "DataConnectionString": "Data Source={{bind.database.first.sys.ip}},{{bind.database.first.cfg.port}};Initial Catalog=nop;Integrated Security=False;Persist Security Info=False;User ID=sa;Password=Pass@word1",
+    "RawDataSettings": {}
+  }

@@ -1,0 +1,8 @@
+"aws_profile" = "default"
+"aws_key_pair_file" = "~/.ssh/yourkey.pem"
+"aws_key_pair_name" = "yourkey"
+"tag_customer" = "customername"
+"tag_project" = "dotnetcore"
+"tag_dept" = "SA-EMEA"
+"tag_contact" = "yourname"
+"tag_ttl" = "8"
