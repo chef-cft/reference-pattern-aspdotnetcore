@@ -5,4 +5,4 @@
      $oService.Change($null,$null,$null,$null,$null,$null,$username,$password) | Out-Null
      Restart-Service -Name Habitat
      
-     hab svc load devopslifter/nop-commerce --bind database:sqlserver.default
+     hab svc load devopslifter/nop-commerce --bind database:sqlserver.default -u https://bldr.habitat.sh --channel stable -s at-once
