@@ -37,7 +37,7 @@ Clone this repo to a working directory on your development workstation (The mach
 cd to `nopcommerce/terraform/aws/`.
 Change your variables to reflect your region, keys and Habitat origin.
 Run `terraform init`
-Run `terraform app`.
+Run `terraform apply`.
 
 Note that it may take upto 15 minutes after `terraform apply` completes before the application can be reached. You can view the habitat supervisor logs on the Windows nodes `Get-Content C:\hab\svc\windows-service\LOGS\Habitat.log -Wait` or Linux node `journalctl -fu hab-sup.service`
 
