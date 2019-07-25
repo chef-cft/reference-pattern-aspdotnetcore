@@ -1,7 +1,7 @@
 data "template_file" "install_as" {
     template = "${file("${path.module}/templates/install_as.ps1")}"
     vars = {
-        peer_ip = "${aws_instance.loadbalancer.private_ip}"
+        hab_nop_origin = "${var.hab_nop_origin}"
     }
 }
 

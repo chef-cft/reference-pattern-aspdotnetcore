@@ -16,7 +16,7 @@ Change your variables to reflect your region and keys.
 Run `terraform init`
 Run `terraform app`
 
-Note that it may take upto 15 minutes after `terraform apply` completes before the application can be reached. You can view the habitat supervisor logs on the Windows nodes `Get-Content C:\hab\svc\windows-service\LOGS\Habitat.log -Wait` or Linux node `cat /var/log/messages&`
+Note that it may take upto 15 minutes after `terraform apply` completes before the application can be reached. You can view the habitat supervisor logs on the Windows nodes `Get-Content C:\hab\svc\windows-service\LOGS\Habitat.log -Wait` or Linux node `journalctl -fu hab-sup.service`
 
 From a local browser `http://<public_ip_of_loadbalancer>` should bring up the web app.
 
