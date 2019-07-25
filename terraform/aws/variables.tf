@@ -40,3 +40,7 @@ variable "aws_centos_image_user" {
 variable "admin_password" {
   default = "Cod3Can!"
 }
+
+variable "hab_nop_origin" {
+  default = "devopslifter"
+}
