@@ -11,11 +11,13 @@ Fully deploying this environment gets you the following:
 - Load balancer VM running `core/haproxy` service binding to the above applications
 
 ## Demoing the Environment as a Reference Pattern
-Clone this repo to a working directory on your development workstation.
-cd to `nopcommerce/terraform/aws/`
-Change your variables to reflect your region and keys.
-Run `terraform init`
-Run `terraform app`
+- Clone this repo to a working directory on your development workstation.
+- cd to  `nopcommerce/terraform/aws/`
+- Run : `cp terraform.tfvars.example terraform.tfvars`
+- Edit `terraform.tfvars` to reflect your region and keys.
+- In `terraform.tfvars`, either set the origin to `hab_nop_origin = devopslifter` or follow instructions in the next section to create your own pkg (Windows instance needed)
+- Run `terraform init`
+- Run `terraform apply`
 
 Note that it may take upto 15 minutes after `terraform apply` completes before the application can be reached. You can view the habitat supervisor logs on the Windows nodes `Get-Content C:\hab\svc\windows-service\LOGS\Habitat.log -Wait` or Linux node `cat /var/log/messages&`
 
@@ -24,20 +26,21 @@ From a local browser `http://<public_ip_of_loadbalancer>` should bring up the we
 ## Demoing the Environment as Habitat for Applications
 You will need access to a Windows workstation to develop the NopCommerce application package. To create a Cloud instance look at https://github.com/chef-cft/habitat_windows_workstation
 
-Clone this repo to a working directory on your Windows development workstation.
-Run `Habitat Setup` and ensure you use your own origin and its corresponing personal access token.
-Enter a Habitat Studio `hab studio enter` and then build the application `build`.
-Upload your newly built package to the habitat depo `hab pkg upload <path to your .hart file>` promote this to stable.
+- Clone this repo to a working directory on your Windows development workstation.
+- Run `Habitat Setup` and ensure you use your own origin and its corresponing personal access token.
+- Enter a Habitat Studio `hab studio enter` and then build the application `build`.
+- Upload your newly built package to the habitat depo `hab pkg upload <path to your .hart file>` 
+- Promote this pkg to stable.
 
 Once you have the application package available from the Habitat depo under your origin you are ready to demo.
 
 ***Note do not destroy your cloud Windows workstation if you are using one, it will be needed for the demo***
 
-Clone this repo to a working directory on your development workstation (The machine you will run Terraform from).
-cd to `nopcommerce/terraform/aws/`.
-Change your variables to reflect your region, keys and Habitat origin.
-Run `terraform init`
-Run `terraform apply`.
+- Clone this repo to a working directory on your development workstation (The machine you will run Terraform from).
+- cd to  `nopcommerce/terraform/aws/`
+- Edit `terraform.tfvars` to reflect your region, keys, origin.
+- Run `terraform init`
+- Run `terraform apply`
 
 Note that it may take upto 15 minutes after `terraform apply` completes before the application can be reached. You can view the habitat supervisor logs on the Windows nodes `Get-Content C:\hab\svc\windows-service\LOGS\Habitat.log -Wait` or Linux node `journalctl -fu hab-sup.service`
 
