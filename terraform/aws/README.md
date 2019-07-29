@@ -50,15 +50,15 @@ On your Windows workstation make a change to the following file in your editor o
 
 `reference-pattern-aspdotnetcore/src/Presentation/Nop.Web/Themes/DefaultClean/Content/css/styles.css`
 
-Modify `background-color` at line 66 to be any colour you want.
-Update the `plan.ps1` to be version `0.1.1`.
-Enter a Habitat Studio `hab studio enter` and then build the application `build`.
-Upload your newly built package to the habitat depo `hab pkg upload <path to your .hart file>`.
-RDP to either Windows app servers and show the service log by running `Get-Content C:\hab\svc\windows-service\LOGS\Habitat.log -Wait`.
-Promote your new package to stable in the Habitat depo.
-Wait for the new service to be loaded on the Windows app server.
-***hard refresh*** your website URL (loadbalancer URL) Ctrl and click the Reload button (Windows) or Hold ⇧ Shift and click the Reload button (Mac).
-Your website should now show with a new background colour.
+ - Modify `background-color` at line 66 to be any colour you want.
+ - Update the `plan.ps1` to be version `0.1.1`.
+ - Enter a Habitat Studio `hab studio enter` and then build the application `build`.
+ - Upload your newly built package to the habitat depo `hab pkg upload <path to your .hart file>`.
+ - RDP to either Windows app servers and show the service log by running `Get-Content C:\hab\svc\windows-service\LOGS\Habitat.log -Wait`.
+ - Promote your new package to stable in the Habitat depo.
+ - Wait for the new service to be loaded on the Windows app server.
+ - ***hard refresh*** your website URL (loadbalancer URL) Ctrl and click the Reload button (Windows) or Hold ⇧ Shift and click the Reload button (Mac).
+ - Your website should now show with a new background colour.
 
 
 ## Requirements
