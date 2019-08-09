@@ -1,0 +1,41 @@
+# Annoying Mac OS files...
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# Chef / InSpec / Habitat
+results/
+policyfiles/*.lock.json
+Berksfile.lock
+.zero-knife.rb
+.kitchen
+.kitchen.local.yml
+.idea
+.vagrant
+*~
+*#
+.#*
+\#*#
+.*.sw[a-z]
+*.un~
+attributes.env
+automate-credentials*.toml
+
+# Bundler
+Gemfile.lock
+gems.locked
+bin/*
+.bundle/*
+
+# Terraform
+*.tfstate
+*.tfstate.backup
+
+# Module directory
+.terraform/
+
+# Sensitive Files
+*.tfvars
+!example.tfvars
