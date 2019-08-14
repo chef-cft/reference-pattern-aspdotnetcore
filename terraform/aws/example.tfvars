@@ -7,3 +7,4 @@
 "tag_contact" = "yourname"
 "tag_ttl" = "8"
 "hab_nop_origin" = "yournoporigin"
+"aws_region" = "eu-west-1"
