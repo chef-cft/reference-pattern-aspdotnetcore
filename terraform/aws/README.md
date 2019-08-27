@@ -27,6 +27,7 @@ From a local browser `http://<public_ip_of_loadbalancer>` should bring up the we
 You will need access to a Windows workstation to develop the NopCommerce application package. To create a Cloud instance look at https://github.com/chef-cft/habitat_windows_workstation
 
 - Clone this repo to a working directory on your Windows development workstation.
+- cd to `effortless-audit-windows`
 - Run `Habitat Setup` and ensure you use your own origin and its corresponing personal access token.
 - Enter a Habitat Studio `hab studio enter` and then build the application `build`.
 - Upload your newly built package to the habitat depo `hab pkg upload <path to your .hart file>` 
