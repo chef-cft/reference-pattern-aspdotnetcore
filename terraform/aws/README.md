@@ -1,5 +1,5 @@
-# Reference Architecture  - ASP.NET Core 
-This repo provides reference architecture for deploying ASP.NET Core applications using [Habitat](https://habitat.sh) and [Terraform](https://terraform.io). 
+# Reference Architecture  - ASP.NET Core
+This repo provides reference architecture for deploying ASP.NET Core applications using [Habitat](https://habitat.sh) and [Terraform](https://terraform.io).
 
 >THIS REPO IS CURRENTLY UNDER DEVELOPMENT. Contact [Tom Finch](https://github.com/devopslifter) if you have any questions or want to collaborate.
 
@@ -27,10 +27,10 @@ From a local browser `http://<public_ip_of_loadbalancer>` should bring up the we
 You will need access to a Windows workstation to develop the NopCommerce application package. To create a Cloud instance look at https://github.com/chef-cft/habitat_windows_workstation
 
 - Clone this repo to a working directory on your Windows development workstation.
-- cd to `effortless-audit-windows`
-- Run `Habitat Setup` and ensure you use your own origin and its corresponing personal access token.
+- cd to `reference-pattern-aspdotnetcore`
+- Run `Habitat Setup` and ensure you use your own origin and its corresponding personal access token.
 - Enter a Habitat Studio `hab studio enter` and then build the application `build`.
-- Upload your newly built package to the habitat depo `hab pkg upload <path to your .hart file>` 
+- Upload your newly built package to the habitat depo `hab pkg upload <path to your .hart file>`
 - Promote this pkg to stable.
 
 Once you have the application package available from the Habitat depo under your origin you are ready to demo.
@@ -43,7 +43,7 @@ Once you have the application package available from the Habitat depo under your
 - Run `terraform init`
 - Run `terraform apply`
 
-Note that it may take upto 15 minutes after `terraform apply` completes before the application can be reached. You can view the habitat supervisor logs on the Windows nodes `Get-Content C:\hab\svc\windows-service\LOGS\Habitat.log -Wait` or Linux node `journalctl -fu hab-sup.service`
+Note that it may take up to 15 minutes after `terraform apply` completes before the application can be reached. You can view the habitat supervisor logs on the Windows nodes `Get-Content C:\hab\svc\windows-service\LOGS\Habitat.log -Wait` or Linux node `journalctl -fu hab-sup.service`
 
 From a local browser `http://<public_ip_of_loadbalancer>` should bring up the web app.
 
@@ -65,4 +65,3 @@ On your Windows workstation make a change to the following file in your editor o
 ## Requirements
 - [Terraform](https://terraform.io)
 - [AWS](https://aws.amazon.com/)
-
