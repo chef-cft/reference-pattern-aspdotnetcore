@@ -11,7 +11,7 @@ nopCommerce is a fully customizable shopping cart. It's stable and highly usable
 
 ## Maintainers
 
-Tom Finch tfinch@chef.io
+Tom Finch tfinch@chef.io, Alai Lubin alubin@chef.io
 
 ## Type of Package
 
