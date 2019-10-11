@@ -1,5 +1,5 @@
 $pkg_name="nop-commerce"
-$pkg_origin="alain"
+$pkg_origin="devopslifter"
 $pkg_version="0.1.0"
 $pkg_maintainer="tfinch@chef.io"
 $pkg_license=@("MIT")
