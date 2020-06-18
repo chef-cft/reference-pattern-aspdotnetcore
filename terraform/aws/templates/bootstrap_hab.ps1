@@ -1,6 +1,7 @@
 SETX HAB_LICENSE accept-no-persist /m
 $env:HAB_LICENSE="accept-no-persist"
 
+[Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
 Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 choco install habitat -y
 
