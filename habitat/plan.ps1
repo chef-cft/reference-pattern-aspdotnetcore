@@ -9,8 +9,8 @@ $pkg_description="NOP Commerce ASP.net core app"
 # Where the running service variable data is located - simplified run, no need for hook
 $pkg_svc_run="cd $pkg_svc_var_path;dotnet nop.web.dll"  
 
-$pkg_deps=@("core/dotnet-core")
-$pkg_build_deps=@("core/dotnet-core-sdk")
+$pkg_deps=@("core/dotnet-core/2.2.3")
+$pkg_build_deps=@("core/dotnet-core-sdk/2.2.301")
 
 
 $pkg_exports=@{
