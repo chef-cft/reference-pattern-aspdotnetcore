@@ -39,3 +39,4 @@ bin/*
 # Sensitive Files
 *.tfvars
 !example.tfvars
+terraform/aws/.terraform.tfstate.lock.info

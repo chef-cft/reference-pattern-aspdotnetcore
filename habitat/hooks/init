@@ -10,6 +10,7 @@ New-Item -Name nop_create.sql -ItemType SymbolicLink -target "{{pkg.svc_config_p
 
 Invoke-Command -ComputerName localhost -EnableNetworkAccess {
     $ProgressPreference="SilentlyContinue"
+    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
     Write-Host "Checking for nuget package provider..."
     if(!(Get-PackageProvider -Name nuget -ErrorAction SilentlyContinue -ListAvailable)) {
         Write-Host "Installing Nuget provider..."
