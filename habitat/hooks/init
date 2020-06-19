@@ -12,7 +12,6 @@ Invoke-Command -ComputerName localhost -EnableNetworkAccess {
     $ProgressPreference="SilentlyContinue"
     [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
     Write-Host "Checking for nuget package provider..."
-    [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
     if(!(Get-PackageProvider -Name nuget -ErrorAction SilentlyContinue -ListAvailable)) {
         Write-Host "Installing Nuget provider..."
         Install-PackageProvider -Name NuGet -Force | Out-Null
